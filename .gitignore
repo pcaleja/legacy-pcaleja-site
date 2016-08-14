@@ -1,0 +1,7 @@
+.DS_Store
+node_modules
+public
+
+src/data/images.json
+src/data/scripts.json
+src/data/styles.json

@@ -13,6 +13,19 @@ html.no-js
 
     script!= fs.readFileSync(`./public/scripts/${scripts['critical-scripts.bundle.js']}`)
 
+    script.
+      WebFontConfig = {
+        google: {
+          families: ['Merriweather Sans:300,400,800', 'Oswald:300,400']
+        }
+      };
+
+      (function(d) {
+        var wf = d.createElement('script'), s = d.scripts[0];
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
+        s.parentNode.insertBefore(wf, s);
+      })(document);
+
     block page-styles
 
     body
@@ -20,9 +33,11 @@ html.no-js
 
       block header
 
-      block content
+      .layout
+        .layout__wrapper
+          block content
 
-      block footer
+          block footer
 
     include _load-styles
 

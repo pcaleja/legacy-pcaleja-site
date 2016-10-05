@@ -1,3 +1,95 @@
-body {
-  background: #ccc;
+@import 'lib/lib';
+
+.about,
+.skills,
+.experiences {
+  margin-bottom: 4rem;
+}
+
+.about {
+
+  &__content {
+    padding-left: 0.5rem;
+  }
+}
+
+.skills {
+
+  &__categories {
+    @extend %flex;
+
+    &__wrapper {
+      @include breakpoint(xxs) {
+        border-left: 1px solid $grey;
+        padding-left: 1rem;
+      }
+    }
+
+    &__item {
+      @extend %col-12;
+      @extend %col-xxs-6;
+      @extend %col-sm-4;
+      margin-bottom: 1.5rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.experiences {
+
+  &__list {
+    padding-left: 0.5rem;
+
+    &__break {
+      display: none;
+
+      @include breakpoint(sm) {
+        display: inline-block;
+        margin: 0 0.25rem;
+      }
+    }
+
+    &__content {
+      display: block;
+
+      @include breakpoint(sm) {
+        display: inline;
+      }
+    }
+
+    &__item {
+      margin-bottom: 2.5rem;
+
+      strong {
+        color: darken($grey, 10%);
+      }
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        padding-left: 10px;
+      }
+
+      li {
+        margin-top: 0.5rem;
+        position: relative;
+
+        &:before {
+          content: ' ';
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background: $grey;
+          position: absolute;
+          left: -10px;
+          top: 10px;
+        }
+      }
+    }
+  }
 }

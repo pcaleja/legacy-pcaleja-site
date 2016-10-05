@@ -1,0 +1,31 @@
+{
+  "internal_links": [
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    }
+  ],
+
+  "external_links": [
+    {
+      "label": "GitHub",
+      "href": ""
+    },
+    {
+      "label": "CodePen",
+      "href": ""
+    },
+    {
+      "label": "LinkedIn",
+      "href": ""
+    }
+  ]
+}

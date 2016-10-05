@@ -8,5 +8,51 @@ block footer
   +footer
 
 block content
-  section This is the only homepage
-  pre= site.name.first
+  section#about.about
+    h1: span= `${site.first_name} ${site.last_name}`
+    .about__content
+      h2= site.position
+      p!= site.about
+
+  section#skills.skills
+    h3: span Skills
+
+    div.skills__categories
+      each category in site.skills.categories
+        if category === 'development'
+          div.skills__categories__item
+            h4= category
+            ul.skills__skill-list
+              each skill in site.skills.list
+                if skill.category === category
+                  li.skills__skill-list__item= skill.name
+
+      div.skills__categories__wrapper
+        each category in site.skills.categories
+          if category !== 'development'
+            div.skills__categories__item
+              h4= category
+              ul.skills__skill-list
+                each skill in site.skills.list
+                  if skill.category === category
+                    li.skills__skill-list__item= skill.name
+
+  section#experience.experiences
+    h3: span Experience
+
+    ul.experiences__list
+      each experience in site.experiences
+        each role in experience.roles
+          li.experiences__list__item
+            p: strong
+              span.experiences__list__content= `${experience.company.name}`
+              span.experiences__list__break |
+              span.experiences__list__content= `${role.position}`
+              span.experiences__list__break |
+              span.experiences__list__content= `${role.start_date} - ${role.end_date}`
+            if role.position !== 'Junior Developer/Designer'
+              p= experience.company.info
+            ul
+              each role in role.achievements
+                li!= role
+

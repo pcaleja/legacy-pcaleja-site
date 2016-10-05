@@ -1,3 +1,13 @@
 mixin header
-  header
-    p This is the header
+  header.header
+    button.header__toggle
+    .header__wrapper
+      nav
+        ul.header__list.header__list--internal
+          each link in header.internal_links
+            li.header__list__item: a(href= link.href)= link.label
+
+      nav
+        ul.header__list.header__list--external
+          each link in header.external_links
+            li.header__list__item: a(href= link.href)= link.label

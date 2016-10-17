@@ -1,3 +1,4 @@
 mixin footer
+  - var year = new Date().getFullYear();
   footer
-    p This is the footer
+    p!= `&copy; ${year} Philip Caleja`

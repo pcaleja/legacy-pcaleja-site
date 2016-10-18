@@ -36,8 +36,10 @@ module.exports = (gulp, plugin) => {
           .pipe(plugin.rev())
           .pipe(gulp.dest(path.js.dest));
       });
-      es.merge(tasks).pipe(plugin.rev.manifest('scripts.json')).pipe(gulp.dest('./src/data/'));
-      es.merge(tasks).on('end', done);
+      es.merge(tasks)
+        .pipe(plugin.rev.manifest('scripts.json'))
+        .pipe(gulp.dest('./src/data/'))
+        .on('end', done);
     });
   };
 };

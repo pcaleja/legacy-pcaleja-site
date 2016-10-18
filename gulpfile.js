@@ -12,7 +12,7 @@ const styles = require('./gulp/tasks/styles')(gulp, plugin);
 const scripts = require('./gulp/tasks/scripts')(gulp, plugin);
 const images = require('./gulp/tasks/images')(gulp, plugin);
 
-gulp.task('views', views);
+gulp.task('views', ['scripts', 'styles'], views);
 gulp.task('styles', styles);
 gulp.task('scripts', scripts);
 gulp.task('images', images);
@@ -22,23 +22,11 @@ gulp.task('clean', () => {
 });
 
 gulp.task('build', (callback) => {
-  runSequence('clean', 'images', ['scripts', 'styles'], 'views', callback);
+  runSequence('clean', 'views', callback);
 });
 
-gulp.task('views-watch', ['views'], () => {
+gulp.task('files-watch', ['views'], () => {
   browserSync.reload();
-});
-
-gulp.task('styles-watch', ['styles'], () => {
-  browserSync.stream();
-});
-
-gulp.task('scripts-watch', ['scripts'], () => {
-  browserSync.stream();
-});
-
-gulp.task('images-watch', () => {
-  runSequence('images', 'styles');
 });
 
 gulp.task('watch', ['build'], () => {
@@ -53,8 +41,7 @@ gulp.task('watch', ['build'], () => {
       ],
     },
   });
-  gulp.watch([path.pug.glob], ['views-watch']);
-  gulp.watch([path.js.glob], ['scripts-watch']);
-  gulp.watch([path.css.glob], ['styles-watch']);
-  gulp.watch([path.images.glob], ['images-watch']);
+  gulp.watch([path.pug.glob], ['files-watch']);
+  gulp.watch([path.js.glob], ['files-watch']);
+  gulp.watch([path.css.glob], ['files-watch']);
 });

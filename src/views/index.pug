@@ -8,14 +8,14 @@ block footer
   +footer
 
 block content
-  section#about.about
-    h1: span= `${site.first_name} ${site.last_name}`
+  section.about
+    h1#about: span= `${site.first_name} ${site.last_name}`
     .about__content
       h2= site.position
       p!= site.about
 
-  section#skills.skills
-    h3: span Skills
+  section.skills
+    h3#skills: span Skills
 
     div.skills__categories
       each category in site.skills.categories
@@ -37,8 +37,8 @@ block content
                   if skill.category === category
                     li.skills__skill-list__item= skill.name
 
-  section#experience.experiences
-    h3: span Experience
+  section.experiences
+    h3#experience: span Experience
 
     ul.experiences__list
       each experience in site.experiences

@@ -2,7 +2,9 @@
 
 .about,
 .skills,
-.experiences {
+.experiences,
+.projects,
+.studies {
   margin-bottom: 4rem;
 }
 
@@ -91,5 +93,12 @@
         }
       }
     }
+  }
+}
+
+.projects {
+
+  li {
+    margin-top: 1.5rem;
   }
 }

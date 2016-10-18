@@ -188,5 +188,15 @@
         }
       ]
     }
+  ],
+  "projects": [
+    {
+      "name": "Simple Static Site Generator",
+      "description": "Inspired by <a href='http://roots.cx/'>Roots</a>, I wanted to create a <code>gulp</code> based static site generator that is simple and reusable for basic sites and yet flexible enough to add functionality needed by more complex sites."
+    },
+    {
+      "name": "Node Image Utility",
+      "description": "This is a wrapper for <a href='https://www.npmjs.com/package/sharp'>Sharp</a> to handle bulk image updates with reusable formatting."
+    }
   ]
 }

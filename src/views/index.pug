@@ -56,3 +56,21 @@ block content
               each achievement in role.achievements
                 li!= achievement
 
+  section.projects
+    h3#projects: span Projects
+
+    ul.projects__list
+      each project in site.projects
+        li
+          p: strong!= project.name
+          p!= project.description
+
+  section.studies
+    h3#studies: span Studies
+
+    ul.projects__list
+      each project in site.projects
+        li
+          p: strong!= project.name
+          p!= project.description
+

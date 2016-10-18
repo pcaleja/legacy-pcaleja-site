@@ -10,4 +10,4 @@ mixin header
       nav
         ul.header__list.header__list--external
           each link in header.external_links
-            li.header__list__item: a(href= link.href)= link.label
+            li.header__list__item: a(href= link.href, target="_blank")= link.label

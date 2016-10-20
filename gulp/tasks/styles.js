@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-
+const moduleImporter = require('sass-module-importer');
 const env = require('../helpers/env.js');
 const path = require('../helpers/path.js');
 // const fs = require('fs');
@@ -18,7 +18,7 @@ module.exports = (gulp, plugin) => {
         },
       }))
       .pipe(env.development(plugin.sourcemaps.init()))
-      .pipe(plugin.sass())
+      .pipe(plugin.sass({ importer: moduleImporter() }))
       .pipe(plugin.autoprefixer())
       .pipe(env.production(plugin.cssnano({
         autoprefixer: false,

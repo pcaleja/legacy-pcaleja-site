@@ -12,8 +12,6 @@ html.no-js
     style!= fs.readFileSync(`./public/styles/${styles['critical-styles.min.css']}`)
     script!= fs.readFileSync(`./public/scripts/${scripts['critical-scripts.bundle.js']}`)
 
-    link(rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/codemirror/CodeMirror/master/lib/codemirror.css")
-
     script.
       WebFontConfig = {
         google: {

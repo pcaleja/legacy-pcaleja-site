@@ -8,7 +8,7 @@ const targetPosition = {};
 let scrollPosition = 0;
 
 const headerToggle = {
-  setTargetPostion() {
+  setTargetPosition() {
     _.each(links, (link) => {
       if (link.hash) {
         const target = document.querySelector(link.hash);
@@ -37,7 +37,7 @@ const headerToggle = {
 
   on() {
     scrollPosition = window.scrollY;
-    headerToggle.setTargetPostion();
+    headerToggle.setTargetPosition();
     body.classList = 'nav-active';
     headerToggle.setMobileAnchorLinks();
   },

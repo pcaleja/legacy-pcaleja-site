@@ -1,0 +1,264 @@
+extends ../_base
+include ../_components/components
+
+block header
+  +header
+
+block footer
+  +footer
+
+block content
+  h1 Gulp Setup
+  p Gulp has been my build tool of choice since I found out about it. It's great for automating tedious tasks and easy to maintain as well as to enhance. Below is the setup I'm using to build this website.
+
+  section
+    h3 Helper Files
+    pre
+      code.
+        /* ./gulp/helpers/env.js */
+
+        const environments = require('gulp-environments');
+
+        const env = {
+          production: environments.production,
+          development: environments.development,
+        };
+
+        module.exports = env;
+
+    pre
+      code.
+        /* ./gulp/helpers/path.js */
+
+        const path = {
+          images: {
+            glob: ['src/images/*.jpg', 'src/images/*.png'],
+            src: ['src/images/*.jpg', 'src/images/*.png'],
+            dest: './public/images',
+          },
+          css: {
+            glob: ['src/styles/**/*.scss', './src/data/images.json'],
+            src: ['src/styles/*.scss', 'src/styles/pages/*.scss'],
+            dest: './public/styles',
+          },
+          js: {
+            glob: 'src/scripts/**/*.js',
+            src: 'src/scripts/{_single,}/*.js',
+            dest: './public/scripts',
+          },
+          pug: {
+            glob: ['./src/views/**/*.pug', './src/data/*'],
+            src: ['./src/views/**/*.pug', '!./src/views/{**/_*,_**/*}'],
+            dest: './public/',
+          },
+        };
+
+        module.exports = path;
+
+
+  section
+    h3 Task Files
+
+    h4 Scripts
+    p This task is for compiling es6 JS files that can be minified for production and also fingerprints the file name to invalidate cache if caching is enabled.
+    pre
+      code.
+        /* ./gulp/tasks/scripts.js */
+        const browserify = require('browserify');
+        const buffer = require('vinyl-buffer');
+        const env = require('../helpers/env.js');
+        const es = require('event-stream');
+        const glob = require('glob');
+        const path = require('../helpers/path.js');
+        const source = require('vinyl-source-stream');
+
+        module.exports = (gulp, plugin) => {
+          return (done) => {
+            glob(path.js.src, (err, files) => {
+              if (err) done(err);
+              const tasks = files.map((entry) => {
+                return browserify({ entries: [entry] })
+                  .transform('babelify', { presets: ['es2015'] })
+                  .bundle()
+                  .pipe(plugin.plumber({
+                    errorHandler(error) {
+                      plugin.notify.onError({
+                        title: 'Gulp Error',
+                        message: 'Error: <%= error.message %>',
+                        sound: 'Bottle',
+                      })(error);
+                      this.emit('end');
+                    },
+                  }))
+                  .pipe(source(entry))
+                  .pipe(buffer())
+                  .pipe(env.production(plugin.uglify()))
+                  .pipe(plugin.rename({
+                    dirname: '',
+                    extname: '.bundle.js',
+                  }))
+                  .pipe(plugin.rev())
+                  .pipe(gulp.dest(path.js.dest));
+              });
+              es.merge(tasks)
+                .pipe(plugin.rev.manifest('scripts.json'))
+                .pipe(gulp.dest('./src/data/'))
+                .on('end', done);
+            });
+          };
+        };
+
+
+    h4 Styles
+    p This task is for compiling SASS files that can be minified for production and also fingerprints the file name to invalidate cache if caching is enabled.
+    pre
+      code.
+        /* ./gulp/tasks/styles.js */
+        const moduleImporter = require('sass-module-importer');
+        const env = require('../helpers/env.js');
+        const path = require('../helpers/path.js');
+
+        module.exports = (gulp, plugin) => {
+          return () => {
+            const stream = gulp.src(path.css.src)
+              .pipe(plugin.plumber({
+                errorHandler(err) {
+                  plugin.notify.onError({
+                    title: 'Gulp Error',
+                    message: 'Error: <%= error.message %>',
+                    sound: 'Bottle',
+                  })(err);
+                  this.emit('end');
+                },
+              }))
+              .pipe(env.development(plugin.sourcemaps.init()))
+              .pipe(plugin.sass({ importer: moduleImporter() }))
+              .pipe(plugin.autoprefixer())
+              .pipe(env.production(plugin.cssnano({
+                autoprefixer: false,
+                zindex: false,
+              })))
+              .pipe(plugin.rename({
+                extname: '.min.css',
+              }))
+              .pipe(env.development(plugin.sourcemaps.write()))
+              .pipe(plugin.rev())
+              .pipe(gulp.dest(path.css.dest))
+              .pipe(plugin.rev.manifest('styles.json'))
+              .pipe(gulp.dest('./src/data/'));
+            return stream;
+          };
+        };
+
+    h4 View
+    p This task is for compiling Pug files into HTML files.
+    pre
+      code.
+        /* ./gulp/tasks/views.js */
+        const env = require('../helpers/env.js');
+        const path = require('../helpers/path.js');
+        const fs = require('fs');
+
+        module.exports = (gulp, plugin) => {
+          return () => {
+            const locals = {
+              fs,
+              site: JSON.parse(fs.readFileSync('./src/data/constants.json', 'utf8')),
+              styles: JSON.parse(fs.readFileSync('./src/data/styles.json', 'utf8')),
+              scripts: JSON.parse(fs.readFileSync('./src/data/scripts.json', 'utf8')),
+              header: JSON.parse(fs.readFileSync('./src/data/header.json', 'utf8')),
+            };
+
+            const stream = gulp.src(path.pug.src)
+              .pipe(plugin.plumber({
+                errorHandler(err) {
+                  plugin.notify.onError({
+                    title: 'Gulp Error',
+                    message: 'Error: <%= error.message %>',
+                    sound: 'Bottle',
+                  })(err);
+                  this.emit('end');
+                },
+              }))
+              .pipe(env.development(plugin.pug({
+                pretty: true,
+                locals,
+              })))
+              .pipe(env.production(plugin.pug({
+                locals,
+              })))
+              .pipe(gulp.dest(path.pug.dest));
+            return stream;
+          };
+        };
+
+    h4 Images
+    p This task is for fingerprinting image files for cache invalidation.
+    pre
+      code.
+        /* ./gulp/tasks/images.js */
+        const path = require('../helpers/path.js');
+
+        module.exports = (gulp, plugin) => {
+          return () => {
+            const stream = gulp.src(path.images.src)
+              .pipe(plugin.rev())
+              .pipe(gulp.dest(path.images.dest))
+              .pipe(plugin.rev.manifest('images.json'))
+              .pipe(gulp.dest('./src/data/'));
+            return stream;
+          };
+        };
+
+  section
+    h3 Main Gulp File
+    pre
+      code.
+        /* ./gulpfile.js */
+        const gulp = require('gulp');
+        const plugin = require('gulp-load-plugins')();
+        const browserSync = require('browser-sync').create();
+        const modRewrite = require('connect-modrewrite');
+        const runSequence = require('run-sequence');
+        const del = require('del');
+        const path = require('./gulp/helpers/path.js');
+        const views = require('./gulp/tasks/views')(gulp, plugin);
+        const styles = require('./gulp/tasks/styles')(gulp, plugin);
+        const scripts = require('./gulp/tasks/scripts')(gulp, plugin);
+        const images = require('./gulp/tasks/images')(gulp, plugin);
+
+        gulp.task('views', ['scripts', 'styles'], views);
+        gulp.task('styles', styles);
+        gulp.task('scripts', scripts);
+        gulp.task('images', images);
+
+        gulp.task('clean', () => {
+          return del('./public/*');
+        });
+
+        gulp.task('build', (callback) => {
+          runSequence('clean', 'views', callback);
+        });
+
+        gulp.task('files-watch', ['views'], () => {
+          browserSync.reload();
+        });
+
+        gulp.task('watch', ['build'], () => {
+          browserSync.init({
+            server: {
+              baseDir: './public/',
+              middleware: [
+                modRewrite([
+                  '^.([^\\.]+)$ /$1.html [L]',
+                  //path.html points to path except for the previously listed paths
+                ]),
+              ],
+            },
+          });
+          gulp.watch([path.pug.glob], ['files-watch']);
+          gulp.watch([path.js.glob], ['files-watch']);
+          gulp.watch([path.css.glob], ['files-watch']);
+        });
+
+

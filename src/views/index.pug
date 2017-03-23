@@ -9,39 +9,38 @@ block footer
 
 block content
   section.about
-    h1#about: span= `${site.first_name} ${site.last_name}`
+    h1#about: span= `${profile.first_name} ${profile.last_name}`
     .about__content
-      h2= site.position
-      p!= site.about
+      h2= profile.position
+      p!= profile.about
 
   section.skills
-    h3#skills: span Skills
+    h3#skills: span= skills.header
 
     div.skills__categories
-      each category in site.skills.categories
+      each category in skills.categories
         if category === 'development'
           div.skills__categories__item
             h4= category
             ul.skills__skill-list
-              each skill in site.skills.list
+              each skill in skills.list
                 if skill.category === category
                   li.skills__skill-list__item= skill.name
 
       div.skills__categories__wrapper
-        each category in site.skills.categories
+        each category in skills.categories
           if category !== 'development'
             div.skills__categories__item
               h4= category
               ul.skills__skill-list
-                each skill in site.skills.list
+                each skill in skills.list
                   if skill.category === category
                     li.skills__skill-list__item= skill.name
 
   section.experiences
-    h3#experience: span Experience
-
+    h3#experience: span= experiences.header
     ul.experiences__list
-      each experience in site.experiences
+      each experience in experiences.list
         each role in experience.roles
           li.experiences__list__item
             p: strong
@@ -56,14 +55,13 @@ block content
               each achievement in role.achievements
                 li!= achievement
 
-  section.projects
-    h3#projects: span Projects
-
-    ul.projects__list
-      each project in site.projects
-        li
-          p: strong!= project.name
-          p!= project.description
-
   section.studies
     h3#studies: span Studies
+
+    ul
+      li
+        pre
+          code.
+            console.log('bye');
+            console.log('hi');
+              console.log('hello');

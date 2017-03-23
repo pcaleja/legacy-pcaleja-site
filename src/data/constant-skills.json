@@ -1,0 +1,108 @@
+{
+  "header": "Skills",
+  "slug": "skills",
+
+  "categories": [
+    "development",
+    "programs",
+    "interpersonal"
+  ],
+
+  "list": [
+    {
+      "name": "HTML",
+      "category": "development",
+      "description": "Along with HTML, I'm also proficient with templating engines such as jade/pug for JavaScript and twig for PHP. They're great for building reusable components."
+    },
+    {
+      "name": "CSS",
+      "category": "development",
+      "description": "I'm quite proficient with CSS, though I usually use SCSS for most of my projects while using BEM for my naming system. I'm also familiar with Stylus, LESS, and postCSS."
+    },
+    {
+      "name": "JavaScript",
+      "category": "development",
+      "description": "I'm comfortable working with client-side JavaScript and creating automated workflows with gulp. I'm also currently learning server-side JavaScript as well as React."
+    },
+    {
+      "name": "PHP",
+      "category": "development",
+      "description": "My experience with PHP is mostly due to working with WordPress Sites, though I've recently been delving deeper into it."
+    },
+    {
+      "name": "Bash",
+      "category": "development",
+      "description": "I have a pretty basic understand of Bash which I mostly use to create shortcuts and basic scripts  which automates and speeds up my workflow."
+    },
+    {
+      "name": "Git",
+      "category": "development",
+      "description": "I messed up enough commits to learn to fix my mistakes :)"
+    },
+    {
+      "name": "Test Driven Development",
+      "category": "development",
+      "description": ""
+    },
+    {
+      "name": "Continuous Deployment",
+      "category": "development",
+      "description": "I'm familiar with the concept and working with Jenkins though I don't have experience setting it up."
+    },
+    {
+      "name": "SEO",
+      "category": "development",
+      "description": ""
+    },
+    {
+      "name": "A/B Testing",
+      "category": "development",
+      "description": "I'm familiar with the concept and worked with tools like Optimizely to setup experiments."
+    },
+    {
+      "name": "Analytics",
+      "category": "development",
+      "description": ""
+    },
+    {
+      "name": "Sublime",
+      "category": "programs",
+      "description": ""
+    },
+    {
+      "name": "Sketch",
+      "category": "programs",
+      "description": ""
+    },
+    {
+      "name": "Photoshop",
+      "category": "programs",
+      "description": ""
+    },
+    {
+      "name": "Illustrator",
+      "category": "programs",
+      "description": ""
+    },
+    {
+      "name": "Communication",
+      "category": "interpersonal",
+      "description": ""
+    },
+    {
+      "name": "Listening",
+      "category": "interpersonal",
+      "description": ""
+    },
+    {
+      "name": "Problem Solving",
+      "category": "interpersonal",
+      "description": ""
+    },
+    {
+      "name": "Assertiveness",
+      "category": "interpersonal",
+      "description": ""
+    }
+  ]
+}

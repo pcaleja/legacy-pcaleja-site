@@ -8,7 +8,9 @@ module.exports = (gulp, plugin) => {
   return () => {
     const locals = {
       fs,
-      site: JSON.parse(fs.readFileSync('./src/data/constants.json', 'utf8')),
+      profile: JSON.parse(fs.readFileSync('./src/data/constant-profile.json', 'utf8')),
+      skills: JSON.parse(fs.readFileSync('./src/data/constant-skills.json', 'utf8')),
+      experiences: JSON.parse(fs.readFileSync('./src/data/constant-experiences.json', 'utf8')),
       styles: JSON.parse(fs.readFileSync('./src/data/styles.json', 'utf8')),
       scripts: JSON.parse(fs.readFileSync('./src/data/scripts.json', 'utf8')),
       header: JSON.parse(fs.readFileSync('./src/data/header.json', 'utf8')),

@@ -14,6 +14,7 @@ module.exports = (gulp, plugin) => {
       styles: JSON.parse(fs.readFileSync('./src/data/styles.json', 'utf8')),
       scripts: JSON.parse(fs.readFileSync('./src/data/scripts.json', 'utf8')),
       header: JSON.parse(fs.readFileSync('./src/data/header.json', 'utf8')),
+      articles: JSON.parse(fs.readFileSync('./src/data/articles.json', 'utf8')),
     };
 
     const stream = gulp.src(path.pug.src)
@@ -22,7 +23,7 @@ module.exports = (gulp, plugin) => {
           plugin.notify.onError({
             title: 'Gulp Error',
             message: 'Error: <%= error.message %>',
-            sound: 'Bottle',
+            sound: false,
           })(err);
           this.emit('end');
         },

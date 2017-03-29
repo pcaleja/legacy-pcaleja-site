@@ -1,12 +1,24 @@
 const path = {
   images: {
-    glob: ['src/images/*.jpg', 'src/images/*.png'],
-    src: ['src/images/*.jpg', 'src/images/*.png'],
+    glob: [
+      'src/images/*.jpg',
+      'src/images/*.png',
+    ],
+    src: [
+      'src/images/*.jpg',
+      'src/images/*.png',
+    ],
     dest: './public/images',
   },
   css: {
-    glob: ['src/styles/**/*.scss', './src/data/images.json'],
-    src: ['src/styles/*.scss', 'src/styles/pages/*.scss'],
+    glob: [
+      'src/styles/**/*.scss',
+      './src/data/images.json',
+    ],
+    src: [
+      'src/styles/*.scss',
+      'src/styles/pages/*.scss',
+    ],
     dest: './public/styles',
   },
   js: {
@@ -15,8 +27,17 @@ const path = {
     dest: './public/scripts',
   },
   pug: {
-    glob: ['./src/views/**/*.pug', './src/data/*'],
-    src: ['./src/views/**/*.pug', '!./src/views/{**/_*,_**/*}'],
+    glob: [
+      './src/views/**/*.pug',
+      './src/data/*',
+      '!./src/data/styles.json',
+      '!./src/data/scripts.json',
+      '!./src/data/images.json',
+    ],
+    src: [
+      './src/views/**/*.pug',
+      '!./src/views/{**/_*,_**/*}',
+    ],
     dest: './public/',
   },
 };

@@ -95,3 +95,21 @@
     }
   }
 }
+
+.article {
+
+  .header {
+
+    &__list--internal {
+      text-align: left;
+      padding-bottom: 0.5rem;
+
+      a {
+        @include font-size(18);
+        margin-bottom: 0.5rem;
+        text-transform: none;
+      }
+
+    }
+  }
+}

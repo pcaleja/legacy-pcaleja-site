@@ -7,6 +7,9 @@ block header
 block footer
   +footer
 
+block data
+  - body_class = 'page'
+
 block content
   section.about
     h1#about: span= `${profile.first_name} ${profile.last_name}`
@@ -55,13 +58,10 @@ block content
               each achievement in role.achievements
                 li!= achievement
 
-  section.studies
-    h3#studies: span Studies
+  section.articles
+    h3#articles: span Articles
 
     ul
-      li
-        pre
-          code.
-            console.log('bye');
-            console.log('hi');
-              console.log('hello');
+      each article in articles
+        li
+          a(href= article.href)= article.label

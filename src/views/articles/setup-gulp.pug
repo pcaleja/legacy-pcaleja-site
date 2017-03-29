@@ -2,10 +2,13 @@ extends ../_base
 include ../_components/components
 
 block header
-  +header
+  +header('article')
 
 block footer
   +footer
+
+block data
+  - body_class = 'article'
 
 block content
   h1 Gulp Setup
@@ -32,13 +35,25 @@ block content
 
         const path = {
           images: {
-            glob: ['src/images/*.jpg', 'src/images/*.png'],
-            src: ['src/images/*.jpg', 'src/images/*.png'],
+            glob: [
+              'src/images/*.jpg',
+              'src/images/*.png',
+            ],
+            src: [
+              'src/images/*.jpg',
+              'src/images/*.png',
+            ],
             dest: './public/images',
           },
           css: {
-            glob: ['src/styles/**/*.scss', './src/data/images.json'],
-            src: ['src/styles/*.scss', 'src/styles/pages/*.scss'],
+            glob: [
+              'src/styles/**/*.scss',
+              './src/data/images.json',
+            ],
+            src: [
+              'src/styles/*.scss',
+              'src/styles/pages/*.scss',
+            ],
             dest: './public/styles',
           },
           js: {
@@ -47,14 +62,22 @@ block content
             dest: './public/scripts',
           },
           pug: {
-            glob: ['./src/views/**/*.pug', './src/data/*'],
-            src: ['./src/views/**/*.pug', '!./src/views/{**/_*,_**/*}'],
+            glob: [
+              './src/views/**/*.pug',
+              './src/data/*',
+              '!./src/data/styles.json',
+              '!./src/data/scripts.json',
+              '!./src/data/images.json',
+            ],
+            src: [
+              './src/views/**/*.pug',
+              '!./src/views/{**/_*,_**/*}',
+            ],
             dest: './public/',
           },
         };
 
         module.exports = path;
-
 
   section
     h3 Task Files
@@ -64,6 +87,7 @@ block content
     pre
       code.
         /* ./gulp/tasks/scripts.js */
+
         const browserify = require('browserify');
         const buffer = require('vinyl-buffer');
         const env = require('../helpers/env.js');
@@ -85,7 +109,7 @@ block content
                       plugin.notify.onError({
                         title: 'Gulp Error',
                         message: 'Error: <%= error.message %>',
-                        sound: 'Bottle',
+                        sound: false,
                       })(error);
                       this.emit('end');
                     },
@@ -114,6 +138,7 @@ block content
     pre
       code.
         /* ./gulp/tasks/styles.js */
+
         const moduleImporter = require('sass-module-importer');
         const env = require('../helpers/env.js');
         const path = require('../helpers/path.js');
@@ -126,7 +151,7 @@ block content
                   plugin.notify.onError({
                     title: 'Gulp Error',
                     message: 'Error: <%= error.message %>',
-                    sound: 'Bottle',
+                    sound: false,
                   })(err);
                   this.emit('end');
                 },
@@ -155,6 +180,7 @@ block content
     pre
       code.
         /* ./gulp/tasks/views.js */
+
         const env = require('../helpers/env.js');
         const path = require('../helpers/path.js');
         const fs = require('fs');
@@ -175,7 +201,7 @@ block content
                   plugin.notify.onError({
                     title: 'Gulp Error',
                     message: 'Error: <%= error.message %>',
-                    sound: 'Bottle',
+                    sound: false,
                   })(err);
                   this.emit('end');
                 },
@@ -197,6 +223,7 @@ block content
     pre
       code.
         /* ./gulp/tasks/images.js */
+
         const path = require('../helpers/path.js');
 
         module.exports = (gulp, plugin) => {
@@ -212,9 +239,11 @@ block content
 
   section
     h3 Main Gulp File
+    p This is where everything gets glued together.
     pre
       code.
         /* ./gulpfile.js */
+
         const gulp = require('gulp');
         const plugin = require('gulp-load-plugins')();
         const browserSync = require('browser-sync').create();

@@ -2,7 +2,7 @@ html,
 body {
   @extend %font-base;
   @extend %font-merriweather-sans;
-  color: $grey;
+  color: $grey-dark-1;
   line-height: 1.4;
 }
 
@@ -48,6 +48,7 @@ h4 {
 
 p {
   margin: 0;
+  margin-bottom: 1rem;
 }
 
 a {

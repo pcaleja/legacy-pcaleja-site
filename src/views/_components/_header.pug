@@ -1,11 +1,21 @@
-mixin header
+mixin header(type)
   header.header
     button.header__toggle
     .header__wrapper
-      nav
-        ul.header__list.header__list--internal
-          each link in header.internal_links
-            li.header__list__item: a(href= link.href)= link.label
+
+      case type
+        when 'article'
+          nav
+            ul.header__list.header__list--internal
+              li.header__list__item: a(href="/") Back to Home
+              each link in articles
+                li.header__list__item: a(href= link.href)= link.label
+
+        default
+          nav
+            ul.header__list.header__list--internal
+              each link in header.internal_links
+                li.header__list__item: a(href= link.href)= link.label
 
       nav
         ul.header__list.header__list--external

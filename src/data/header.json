@@ -2,19 +2,19 @@
   "internal_links": [
     {
       "label": "About",
-      "href": "/#about"
+      "href": "#about"
     },
     {
       "label": "Skills",
-      "href": "/#skills"
+      "href": "#skills"
     },
     {
       "label": "Experience",
-      "href": "/#experience"
+      "href": "#experience"
     },
     {
-      "label": "Studies",
-      "href": "/#studies"
+      "label": "Articles",
+      "href": "#articles"
     }
   ],
 

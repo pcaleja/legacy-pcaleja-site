@@ -21,7 +21,7 @@ module.exports = (gulp, plugin) => {
               plugin.notify.onError({
                 title: 'Gulp Error',
                 message: 'Error: <%= error.message %>',
-                sound: 'Bottle',
+                sound: false,
               })(error);
               this.emit('end');
             },

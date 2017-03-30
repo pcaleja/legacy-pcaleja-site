@@ -14,16 +14,37 @@ block content
   h1 Dev Workflow: Requirements
 
   h3 Why have them?
-  p My first year working as a Developer, I thought that what my job was to simply write code based off the design given to me. The process of usually goes something like this. A stakeholder gets an idea, discusses that idea with his or her team, gets appoved, and goes to design. Design creates the visuals based off the idea and then passes those designs to me which I then build into a page. After delivering, I usually hear something like, "Oh but we were expecting this and this functionality". And so, we start over and pretty much doubled the build time.
 
-  p This happened quite a number of times before we realized that this wasn't sustainable. Projects weren't getting done on time and estimates were unrealistic. Thankfully, a co-worker of mine suggested that something needs to get done. We decided to analyze our process and understand where the pain points.
+  p My first year working as a developer, I thought that my job was simply to write code. It was great being able to just build without having to think about the politics and logistics involved in a task. Everything was going smoothly until more complex tasks started coming on my plate. After a while, my production rate decreased and my stress levels increased. Thankfully, a co-worker of mine suggested that we investigate the process.
+
+  p The lifecycle of a project usually went like this:
+
+    ul
+      li A stakeholder gets an idea and discusses that idea with his or her team.
+      li The idea gets approved, and the stakeholder meets with design.
+      li Design creates the visuals based off the idea and then passes those designs to Dev.
+      li The build gets delivered and the following tends to happen:
+
+        ul
+          li Stakeholder leaves a feedback of, "Oh but we were expecting this and this functionality".
+          li Copy and design changes are made after delivery.
+          li Project gets cancelled because it wasn't approved by all stakeholders.
+
+
+  p This happened quite a number of times before we started investigating the process. After investigating, we discovered that the process wasn't sustainable. We needed to fix the process from the ground up, and to start, we needed a way to define better project requirements.
+
+  h3 Our setup...
 
   p We decided to use pivotal as our ticketing tracking software. With it, we created a template for the ticket description that needs to be completed before the ticket is started.
 
-  h5 This templates asks for the following:
+  p This templates asks for the following:
   ul
-    li User Story (Why we need this feature)
-    li Requirements (What are the information we need for the build)
-    li Acceptance Criteria (What is the expected functionality)
+    li User Story  - Why do we need this feature?
+    li Requirements - What information do we need to execute?
+    li Acceptance Criteria - What is the expected functionality?
 
-  p By having those information, we can tell the value of completing the task for the business, whether or not the developers have all they need to complete the build, and a definition of what is being built. With these, we can better prioritize and estimate each ticket and set realistic expectations for the stakeholders.
+  p By having these informations, we can estimate the value of the task for the business, whether or not all the necessary information have been gathered, and a definition of what is being built. With these, we can better prioritize each ticket and set realistic expectations for the stakeholders. This also forces developers to be more involved early on the lifecycle and can advice stakeholders as to what's viable and what's not.
+
+  h3 Lesson learned...
+
+  p Going through such experience, I learned that being a developer doesn't only mean writing code. As a developer, I need to be proactive in tasks I'm involved with. By understanding the task early on, and knowing what the stakeholders and users expect, I can set realistic estimates, deliver the task on time and of higher quality.

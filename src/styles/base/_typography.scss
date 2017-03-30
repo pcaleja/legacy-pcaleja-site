@@ -3,7 +3,8 @@ body {
   @extend %font-base;
   @extend %font-merriweather-sans;
   color: $grey-dark-1;
-  line-height: 1.4;
+  line-height: 1.6;
+  letter-spacing: -0.4px;
 }
 
 h1 {
@@ -69,4 +70,8 @@ h5 {
 
 .article .layout {
   @extend %list-bullets;
+
+  h3 {
+    margin-top: 3rem;
+  }
 }

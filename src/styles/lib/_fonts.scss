@@ -81,3 +81,26 @@ $base-font-size: 15;
     }
   }
 }
+
+%list-bullets {
+  ul {
+    padding-left: 10px;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-top: 0.5rem;
+    position: relative;
+
+    &:before {
+      content: ' ';
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: $teal;
+      position: absolute;
+      left: -10px;
+      top: 10px;
+    }
+  }
+}

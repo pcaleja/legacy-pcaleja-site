@@ -71,35 +71,16 @@
     }
 
     &__item {
+      @extend %list-bullets;
       margin-bottom: 2.5rem;
 
       strong {
         font-weight: 400;
-        color: darken($grey, 10%);
+        color: darken($grey-dark-1, 25%);
       }
 
       p {
         margin-bottom: 0.5rem;
-      }
-
-      ul {
-        padding-left: 10px;
-      }
-
-      li {
-        margin-top: 0.5rem;
-        position: relative;
-
-        &:before {
-          content: ' ';
-          width: 3px;
-          height: 3px;
-          border-radius: 50%;
-          background: $teal;
-          position: absolute;
-          left: -10px;
-          top: 10px;
-        }
       }
     }
   }

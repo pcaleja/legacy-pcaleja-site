@@ -1,0 +1,246 @@
+extends ../_base
+include ../_components/components
+
+block header
+  +header('article')
+
+block footer
+  +footer
+
+block data
+  - body_class = 'article'
+
+block content
+  h1 SCSS Responsive Setup
+  p SCSS is a CSS preprocessor that allows for creating reusable and maintainable styles through logic and functions. Below is my SCSS responsive setup for most of my project.
+
+  h3 Media Queries
+  p I usually code mobile-first so the breakpoint mixin I use uses min-width to keep the flow consistent.
+  pre
+    code.
+      $breakpoints: (
+        default: 0,
+        xxs: 480px,
+        xs: 769px,
+        sm: 992px,
+        md: 1200px,
+        lg: 1441px
+      );
+
+      @mixin breakpoint($point) {
+        @media only screen and (min-width: map-get($breakpoints, $point)) {
+          @content;
+        }
+      }
+
+  h3 Font Size
+  p There was this one task I had to do where I had to change the font size of headers in a moderately large code base. Thinking it was going to be a simple task, I did a find all and to my horror, I'm looking at hundreds and hundreds of calls of `font-size:` all throughout the codebase. As a result, I wrote this.
+  pre
+    code.
+      @mixin font-size($base, $xxs:null, $xs:null, $sm:null, $md:null, $lg:null) {
+        $font-size-args: $xxs, $xs, $sm, $md, $lg;
+        $font-size-bp: xxs, xs, sm, md, lg;
+        @include font-size-convert($base);
+        @for $i from 1 through length($font-size-args) {
+          @if nth($font-size-args, $i) {
+            @include breakpoint(nth($font-size-bp, $i)) {
+              @include font-size-convert(nth($font-size-args, $i));
+            }
+          }
+        }
+      }
+
+  h3 Flexbox
+  p I remember the days when I had to use floats and clears to have some kind of a grid working. Thank goodness for flexbox. I can't even think of building a page without flexbox anymore. Some of these placeholders feel unnecessary but the reason I have them is to keep all styles related to flexbox together since they all have a similar call `@extend %placeholder`. I find it easier to maintain since it stands out from the rest of the styles I write.
+  pre
+    code.
+      %flex {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 1 auto;
+        flex-wrap: wrap;
+      }
+
+      %row {
+        flex-direction: row;
+      }
+
+      %column {
+        flex-direction: column;
+      }
+
+      %row-reverse {
+        flex-direction: row-reverse;
+      }
+
+      %column-reverse {
+        flex-direction: column-reverse;
+      }
+
+      %col {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+      }
+
+      @for $i from 1 through 12 {
+        %col-#{$i} {
+          box-sizing: border-box;
+          flex: 0 0 auto;
+          padding-right: 0.5rem;
+          padding-left: 0.5rem;
+          flex-basis: (100 / (12 / $i)) * 1%;
+          max-width: (100 / (12 / $i)) * 1%;
+        }
+
+        %col-offset-#{$i} {
+          box-sizing: border-box;
+          flex: 0 0 auto;
+          padding-right: 0.5rem;
+          padding-left: 0.5rem;
+          margin-left: (100 / (12 / $i)) * 1%;
+        }
+      }
+
+      %start {
+        justify-content: flex-start;
+        text-align: start;
+      }
+
+      %center {
+        justify-content: center;
+        text-align: center;
+      }
+
+      %end {
+        justify-content: flex-end;
+        text-align: end;
+      }
+
+      %top {
+        align-items: flex-start;
+      }
+
+      %middle {
+        align-items: center;
+      }
+
+      %bottom {
+        align-items: flex-end;
+      }
+
+      %around {
+        justify-content: space-around;
+      }
+
+      %between {
+        justify-content: space-between;
+      }
+
+      %first {
+        order: -1;
+      }
+
+      %last {
+        order: 1;
+      }
+
+      $flex-breakpoints: xxs, xs, sm, md, lg;
+
+      @each $breakpoint in $flex-breakpoints {
+        @include breakpoint($breakpoint) {
+
+          %row-\#{$breakpoint} {
+            flex-direction: row;
+          }
+
+          %column-\#{$breakpoint} {
+            flex-direction: column;
+          }
+
+          %row-reverse-\#{$breakpoint} {
+            flex-direction: row-reverse;
+          }
+
+          %column-reverse-\#{$breakpoint} {
+            flex-direction: column-reverse;
+          }
+
+          %col-\#{$breakpoint} {
+            box-sizing: border-box;
+            flex: 0 0 auto;
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+            flex-grow: 1;
+            flex-basis: 0;
+            max-width: 100%;
+          }
+
+          @for $i from 1 through 12 {
+            %col-\#{$breakpoint + '-' + $i} {
+              box-sizing: border-box;
+              flex: 0 0 auto;
+              padding-right: 0.5rem;
+              padding-left: 0.5rem;
+              flex-basis: (100 / (12 / $i)) * 1%;
+              max-width: (100 / (12 / $i)) * 1%;
+            }
+
+            %col-offset-\#{$breakpoint + '-' + $i} {
+              box-sizing: border-box;
+              flex: 0 0 auto;
+              padding-right: 0.5rem;
+              padding-left: 0.5rem;
+              margin-left: (100 / (12 / $i)) * 1%;
+            }
+          }
+
+          %start-\#{$breakpoint} {
+            justify-content: flex-start;
+            text-align: start;
+          }
+
+          %center-\#{$breakpoint} {
+            justify-content: center;
+            text-align: center;
+          }
+
+          %end-\#{$breakpoint} {
+            justify-content: flex-end;
+            text-align: end;
+          }
+
+          %top-\#{$breakpoint} {
+            align-items: flex-start;
+          }
+
+          %middle-\#{$breakpoint} {
+            align-items: center;
+          }
+
+          %bottom-\#{$breakpoint} {
+            align-items: flex-end;
+          }
+
+          %around-\#{$breakpoint} {
+            justify-content: space-around;
+          }
+
+          %between-\#{$breakpoint} {
+            justify-content: space-between;
+          }
+
+          %first-\#{$breakpoint} {
+            order: -1;
+          }
+
+          %last-\#{$breakpoint} {
+            order: 1;
+          }
+        }
+      }
+

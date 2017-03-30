@@ -1,11 +1,16 @@
 {
+  "workflow-requirements": {
+    "label": "Dev Workflow: Requirements",
+    "href": "/articles/workflow-requirements"
+  },
+
   "setup-gulp": {
-    "label": "Setup guide for Gulp",
+    "label": "My Setup: Gulp",
     "href": "/articles/setup-gulp"
   },
 
   "setup-sass-responsive": {
-    "label": "Setup guide for responsive SASS",
-    "href": "/articles/setup-sass-responsive"
+    "label": "My Setup: Responsive SCSS",
+    "href": "/articles/setup-scss-responsive"
   }
 }

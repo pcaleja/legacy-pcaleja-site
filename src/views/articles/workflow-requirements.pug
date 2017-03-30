@@ -1,0 +1,29 @@
+extends ../_base
+include ../_components/components
+
+block header
+  +header('article')
+
+block footer
+  +footer
+
+block data
+  - body_class = 'article'
+
+block content
+  h1 Dev Workflow: Requirements
+
+  h3 Why have them?
+  p My first year working as a Developer, I thought that what my job was to simply write code based off the design given to me. The process of usually goes something like this. A stakeholder gets an idea, discusses that idea with his or her team, gets appoved, and goes to design. Design creates the visuals based off the idea and then passes those designs to me which I then build into a page. After delivering, I usually hear something like, "Oh but we were expecting this and this functionality". And so, we start over and pretty much doubled the build time.
+
+  p This happened quite a number of times before we realized that this wasn't sustainable. Projects weren't getting done on time and estimates were unrealistic. Thankfully, a co-worker of mine suggested that something needs to get done. We decided to analyze our process and understand where the pain points.
+
+  p We decided to use pivotal as our ticketing tracking software. With it, we created a template for the ticket description that needs to be completed before the ticket is started.
+
+  h5 This templates asks for the following:
+  ul
+    li User Story (Why we need this feature)
+    li Requirements (What are the information we need for the build)
+    li Acceptance Criteria (What is the expected functionality)
+
+  p By having those information, we can tell the value of completing the task for the business, whether or not the developers have all they need to complete the build, and a definition of what is being built. With these, we can better prioritize and estimate each ticket and set realistic expectations for the stakeholders.

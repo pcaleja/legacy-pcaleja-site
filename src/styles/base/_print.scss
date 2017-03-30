@@ -1,0 +1,55 @@
+@media print {
+
+  body {
+    @include font-size(12);
+  }
+
+  h1 {
+    @include font-size(18);
+    margin: 0;
+  }
+
+  h2 {
+    @include font-size(15);
+    margin: 0;
+  }
+
+  h3 {
+    @include font-size(13.5);
+    margin-bottom: 5px;
+  }
+
+  h4 {
+    @include font-size(12.5);
+  }
+
+  .about,
+  .skills,
+  .experiences {
+    margin-bottom: 1rem;
+  }
+
+  .skills {
+
+    &__categories {
+      padding-left: 8px;
+
+      &__item {
+        width: 30%;
+        float: left;
+      }
+
+      &__wrapper {
+        width: 50%;
+
+        .skills__categories__item {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  .articles {
+    display: none;
+  }
+}

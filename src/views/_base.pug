@@ -8,9 +8,17 @@ html.no-js
     meta(charset='utf8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
     meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
-    meta(name='robots' content="noindex, nofollow")
     style!= fs.readFileSync(`./public/styles/${styles['critical-styles.min.css']}`)
     script!= fs.readFileSync(`./public/scripts/${scripts['critical-scripts.bundle.js']}`)
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-40892343-1', 'auto');
+      ga('send', 'pageview');
 
     script.
       WebFontConfig = {
@@ -28,7 +36,6 @@ html.no-js
     block page-styles
 
     body(class= body_class)
-      //- include _icons
 
       block header
 

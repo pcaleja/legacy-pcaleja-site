@@ -1,108 +1,169 @@
 {
   "header": "Skills",
   "slug": "skills",
-
-  "categories": [
-    "development",
-    "programs",
-    "interpersonal"
-  ],
-
   "list": [
     {
+      "name": "Sublime",
+      "experience": "4 years",
+      "details": [
+        {
+          "name": "Preferred code editor"
+        }
+      ]
+    },
+    {
       "name": "HTML",
-      "category": "development",
-      "description": "Along with HTML, I'm also proficient with templating engines such as jade/pug for JavaScript and twig for PHP. They're great for building reusable components."
+      "experience": "4 years",
+      "details": [
+        {
+          "name": "Templating Engines (PUG, Twig, HAML)",
+          "description": "Able to use templating engines to create reusable and maintainable components and views."
+        },
+        {
+          "name": "SEO",
+          "description": "Able to use metadata, schemas, and robots to control a page's visibility for search engines."
+        }
+      ]
     },
     {
       "name": "CSS",
-      "category": "development",
-      "description": "I'm quite proficient with CSS, though I usually use SCSS for most of my projects while using BEM for my naming system. I'm also familiar with Stylus, LESS, and postCSS."
+      "experience": "4 years",
+      "details": [
+        {
+          "name": "Preproccesors (SCSS, Stylus)",
+          "description": "Able to setup and use preprocessors to improve style reusability and maintainability."
+        },
+        {
+          "name": "Methodologies (BEM, Mobile First)",
+          "description": "Understanding of the importance of having a structured naming convention for improved readability and consistency of the codebase. As well as, understanding of the mobile first methodology to address a project's responsive needs."
+        },
+        {
+          "name": "Frameoworks (Bootstrap)",
+          "description": "Able to use CSS frameworks to quickly prototype ideas. I prefer not to use frameworks in production codebase because it tends to create unnecessary bloat."
+        }
+      ]
     },
     {
       "name": "JavaScript",
-      "category": "development",
-      "description": "I'm comfortable working with client-side JavaScript and creating automated workflows with gulp. I'm also currently learning server-side JavaScript as well as React."
+      "experience": "3 years",
+      "details": [
+        {
+          "name": "Frameworks (Vue)",
+          "description": "Able to use frameworks for creating SPAs or simply using it as a View layer or creating UI components."
+        },
+        {
+          "name": "Package Managers (NPM)",
+          "description": "Able to use package managers to install and maintain third party project dependencies."
+        },
+        {
+          "name": "Bundlers / Task Runners (Browserify, Webpack, Gulp)",
+          "description": "Able to setup and use bundlers and task runners to automatically generate an optimized codebase for production."
+        },
+        {
+          "name": "Libraries (jQuery, Underscore)",
+          "description": "Understanding of various third party libraries to improve development speed and maintainability."
+        },
+        {
+          "name": "ES6",
+          "description": "Able to setup and use Babel to transpile ES6 code to production ready."
+        }
+      ]
     },
     {
       "name": "PHP",
-      "category": "development",
-      "description": "My experience with PHP is mostly due to working with WordPress Sites, though I've recently been delving deeper into it."
+      "experience": "3 years",
+      "details": [
+        {
+          "name": "WordPress",
+          "description": "Able to use PHP to create custom themes and functionalities for WordPress Sites."
+        }
+      ]
     },
     {
-      "name": "Bash",
-      "category": "development",
-      "description": "I have a pretty basic understand of Bash which I mostly use to create shortcuts and basic scripts  which automates and speeds up my workflow."
-    },
-    {
-      "name": "Git",
-      "category": "development",
-      "description": "I messed up enough commits to learn to fix my mistakes :)"
-    },
-    {
-      "name": "Test Driven Development",
-      "category": "development",
-      "description": ""
-    },
-    {
-      "name": "Continuous Deployment",
-      "category": "development",
-      "description": "I'm familiar with the concept and working with Jenkins though I don't have experience setting it up."
-    },
-    {
-      "name": "SEO",
-      "category": "development",
-      "description": ""
+      "name": "Shell",
+      "experience": "2 years",
+      "details": [
+        {
+          "name": "VCS (Git)",
+          "description": "Able to use git to track changes in a project and improve collaboration with other developers."
+        },
+        {
+          "name": "SSH",
+          "description": "Able to use SSH to connect to client applications securely and seamlessly."
+        },
+        {
+          "name": "Bash",
+          "description": "Understanding of how .bash_profile works and can use to improve daily workflow with aliases and scripts."
+        },
+        {
+          "name": "vim",
+          "description": "Able to use vim as default CLI editor for quick text/code edits."
+        }
+      ]
     },
     {
       "name": "A/B Testing",
-      "category": "development",
-      "description": "I'm familiar with the concept and worked with tools like Optimizely to setup experiments."
+      "experience": "2 years",
+      "details": [
+        {
+          "name": "Optimizely",
+          "description": "Able to use Optimizely to setup experiments to measure and compare page engagement and performance."
+        }
+      ]
     },
     {
       "name": "Analytics",
-      "category": "development",
-      "description": ""
+      "experience": "2 years",
+      "details": [
+        {
+          "name": "Tooling (GA, DataLayer)",
+          "description": "Able to write events to track a user's engagement with the site."
+        }
+      ]
     },
     {
-      "name": "Sublime",
-      "category": "programs",
-      "description": ""
+      "name": "Test Driven Development",
+      "experience": "1 year",
+      "details": [
+        {
+          "name": "End-to-end testing (SauceLabs + Nightwatch.js)",
+          "description": "Able to write tests to confirm expected UI functionalities are passing."
+        },
+        {
+          "name": "Unit Testing",
+          "description": "Able to write tests to confirm that modular functionalities are returning the expected values."
+        }
+      ]
     },
     {
-      "name": "Sketch",
-      "category": "programs",
-      "description": ""
+      "name": "Continuous Integration",
+      "experience": "1 year",
+      "details": [
+        {
+          "name": "Tooling (Jenkins)",
+          "description": "Able to use these tools to automate build and tests when deploying code"
+        }
+      ]
     },
     {
-      "name": "Photoshop",
-      "category": "programs",
-      "description": ""
+      "name": "Project Management",
+      "experience": "1 year",
+      "details": [
+        {
+          "name": "Pivotal Tracker",
+          "description": "Able to use Pivotal as a ticketing software to track tasks."
+        }
+      ]
     },
     {
-      "name": "Illustrator",
-      "category": "programs",
-      "description": ""
-    },
-    {
-      "name": "Communication",
-      "category": "interpersonal",
-      "description": ""
-    },
-    {
-      "name": "Listening",
-      "category": "interpersonal",
-      "description": ""
-    },
-    {
-      "name": "Problem Solving",
-      "category": "interpersonal",
-      "description": ""
-    },
-    {
-      "name": "Assertiveness",
-      "category": "interpersonal",
-      "description": ""
+      "name": "Design",
+      "experience": "4 years",
+      "details": [
+        {
+          "name": "Programs (Sketch, Photoshop, Illustrator)",
+          "description": "Able to use these programs to create and extract assets."
+        }
+      ]
     }
   ]
 }

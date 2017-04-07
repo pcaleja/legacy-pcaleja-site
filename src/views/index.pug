@@ -20,25 +20,16 @@ block content
   section.skills
     h3#skills: span= skills.header
 
-    div.skills__categories
-      each category in skills.categories
-        if category === 'development'
-          div.skills__categories__item
-            h4= category
-            ul.skills__skill-list
-              each skill in skills.list
-                if skill.category === category
-                  li.skills__skill-list__item= skill.name
+    ul.skills__list
+      each skill in skills.list
+        li.skills__list__item
+          strong= `${skill.name} | ${skill.experience}`
+          ul
+            each detail in skill.details
+              li.skills__list__item__detail
+                p.skills__list__item__name= detail.name
+                p.skills__list__item__description= detail.description
 
-      div.skills__categories__wrapper
-        each category in skills.categories
-          if category !== 'development'
-            div.skills__categories__item
-              h4= category
-              ul.skills__skill-list
-                each skill in skills.list
-                  if skill.category === category
-                    li.skills__skill-list__item= skill.name
 
   section.experiences
     h3#experience: span= experiences.header

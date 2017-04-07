@@ -15,17 +15,10 @@
 
 .skills {
 
-  &__categories {
-    @extend %flex;
-
-    &__wrapper {
-      @include breakpoint(xxs) {
-        border-left: 1px solid $grey;
-        padding-left: 1rem;
-      }
-    }
+  &__list {
 
     &__item {
+      @extend %list-bullets;
       width: 100%;
       margin-bottom: 1.5rem;
 
@@ -40,6 +33,21 @@
 
       &:last-of-type {
         margin-bottom: 0;
+      }
+
+      &__name {
+        margin: 0;
+      }
+
+      &__description {
+        @include font-size(13);
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      strong {
+        font-weight: 400;
+        color: darken($grey-dark-1, 25%);
       }
     }
   }

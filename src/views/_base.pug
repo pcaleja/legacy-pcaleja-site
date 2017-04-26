@@ -5,9 +5,29 @@ html.no-js
 
   head
 
-    meta(charset='utf8')
+    meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
-    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
+
+    if page_title
+      title= page_title
+      meta(property='og:title' content= page_title)
+
+    if page_description
+      meta(name='description' content= page_description)
+      meta(property='og:description' content= page_description)
+
+    if page_robots
+      meta(name='robots' content= page_robots)
+
+    if page_url
+      link(rel='canonical' href= page_url)
+      meta(property='og:url' content= page_url)
+
+    meta(property='og:type' content='website')
+    meta(property='og:locale' content='en_US')
+    meta(property='og:site_name' content='pcaleja')
+
     style!= fs.readFileSync(`./public/styles/${styles['critical-styles.min.css']}`)
     script!= fs.readFileSync(`./public/scripts/${scripts['critical-scripts.bundle.js']}`)
 

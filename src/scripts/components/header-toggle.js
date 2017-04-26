@@ -42,12 +42,11 @@ const headerToggle = {
   on() {
     scrollPosition = window.scrollY;
     headerToggle.setTargetPosition();
-    body.classList = initialBodyClass + ' nav-active';
+    body.classList = `${initialBodyClass} nav-active`;
     headerToggle.setMobileAnchorLinks();
   },
 
   off() {
-    const classListArray = Array.prototype.slice.call(body.classList);
     body.classList = initialBodyClass;
     window.scrollTo(0, scrollPosition);
     anchorScroll.init();

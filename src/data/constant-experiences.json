@@ -4,6 +4,21 @@
   "list": [
     {
       "company": {
+        "name": "NYONair",
+        "info": "NYONair is aerial/helicopter service company focusing on aerial photography experiences."
+      },
+
+      "roles": [
+        {
+          "position": "Web Developer",
+          "start_date": "May 2017",
+          "end_date": "Present",
+          "achievements": []
+        }
+      ]
+    },
+    {
+      "company": {
         "name": "ShopKeep",
         "info": "ShopKeep is a software development company working on a point of sale application for iOS devices that’s being used by over 20,000 small businesses."
       },
@@ -12,7 +27,7 @@
         {
           "position": "Front-End Developer",
           "start_date": "March 2016",
-          "end_date": "Present",
+          "end_date": "May 2017",
           "achievements": [
             "I’m the lead developer for ShopKeep’s marketing site, <a href='http://www.shopkeep.com' target='_blank'>www.shopkeep.com</a>.",
 

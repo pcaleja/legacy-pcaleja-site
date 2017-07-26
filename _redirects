@@ -1,2 +1,2 @@
 #Domain Redirect
-http://pcaleja.netlify.com/*  https://pcaleja.com/:splat  301!
+http://pcaleja.netlify.com/*  https://www.pcaleja.com/:splat  301!

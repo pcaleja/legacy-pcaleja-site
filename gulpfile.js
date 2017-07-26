@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
-
 const gulp = require('gulp');
 const plugin = require('gulp-load-plugins')();
 const browserSync = require('browser-sync').create();
 const modRewrite = require('connect-modrewrite');
 const runSequence = require('run-sequence');
+const fs = require('fs');
 const del = require('del');
 const path = require('./gulp/helpers/path.js');
 const views = require('./gulp/tasks/views')(gulp, plugin);
@@ -21,8 +21,13 @@ gulp.task('clean', () => {
   return del('./public/*');
 });
 
+gulp.task('redirects', () => {
+  return fs.createReadStream('./_redirects')
+    .pipe(fs.createWriteStream('./public/_redirects'));
+});
+
 gulp.task('build', (callback) => {
-  runSequence('clean', 'views', callback);
+  runSequence('clean', 'views', 'redirects', callback);
 });
 
 gulp.task('files-watch', ['views'], () => {

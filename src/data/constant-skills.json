@@ -4,7 +4,7 @@
   "list": [
     {
       "name": "Sublime",
-      "experience": "4 years",
+      "experience": "5 years",
       "details": [
         {
           "name": "Preferred code editor"
@@ -13,7 +13,7 @@
     },
     {
       "name": "HTML",
-      "experience": "4 years",
+      "experience": "5 years",
       "details": [
         {
           "name": "Templating Engines (PUG, Twig, HAML)",
@@ -27,7 +27,7 @@
     },
     {
       "name": "CSS",
-      "experience": "4 years",
+      "experience": "5 years",
       "details": [
         {
           "name": "Preproccesors (SCSS, Stylus)",
@@ -45,7 +45,7 @@
     },
     {
       "name": "JavaScript",
-      "experience": "3 years",
+      "experience": "4 years",
       "details": [
         {
           "name": "Frameworks (Vue)",
@@ -53,7 +53,7 @@
         },
         {
           "name": "Package Managers (NPM)",
-          "description": "Able to use package managers to install and maintain third party project dependencies."
+          "description": "Able to use package managers to install and maintain third-party project dependencies."
         },
         {
           "name": "Bundlers / Task Runners (Browserify, Webpack, Gulp)",
@@ -61,7 +61,7 @@
         },
         {
           "name": "Libraries (jQuery, Underscore)",
-          "description": "Understanding of various third party libraries to improve development speed and maintainability."
+          "description": "Understanding of various third-party libraries to improve development speed and maintainability."
         },
         {
           "name": "ES6",
@@ -103,17 +103,17 @@
     },
     {
       "name": "A/B Testing",
-      "experience": "2 years",
+      "experience": "3 years",
       "details": [
         {
           "name": "Optimizely",
-          "description": "Able to use Optimizely to setup experiments to measure and compare page engagement and performance."
+          "description": "Able to use Google Optimize to setup experiments to measure and compare page engagement and performance."
         }
       ]
     },
     {
       "name": "Analytics",
-      "experience": "2 years",
+      "experience": "3 years",
       "details": [
         {
           "name": "Tooling (GA, DataLayer)",
@@ -147,17 +147,21 @@
     },
     {
       "name": "Project Management",
-      "experience": "1 year",
+      "experience": "2 years",
       "details": [
         {
           "name": "Pivotal Tracker",
           "description": "Able to use Pivotal as a ticketing software to track tasks."
+        },
+        {
+          "name": "JIRA",
+          "description": "Able to use and customize JIRA to accommodate a variety of workflows."
         }
       ]
     },
     {
       "name": "Design",
-      "experience": "4 years",
+      "experience": "5 years",
       "details": [
         {
           "name": "Programs (Sketch, Photoshop, Illustrator)",

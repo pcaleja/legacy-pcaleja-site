@@ -5,7 +5,7 @@
     {
       "company": {
         "name": "NYONair",
-        "info": "NYONair is aerial/helicopter service company focusing on aerial photography experiences."
+        "info": "NYONair is an aerial/helicopter company focusing on aerial photography experiences."
       },
 
       "roles": [
@@ -13,7 +13,9 @@
           "position": "Web Developer",
           "start_date": "May 2017",
           "end_date": "Present",
-          "achievements": []
+          "achievements": [
+            "I'm the lead front-end developer for NYONair's aerial experience branch, <a href='https://www.flynyon.com' target='_blank'>www.flynyon.com</a>."
+          ]
         }
       ]
     },
@@ -29,13 +31,13 @@
           "start_date": "March 2016",
           "end_date": "May 2017",
           "achievements": [
-            "I’m the lead developer for ShopKeep’s marketing site, <a href='http://www.shopkeep.com' target='_blank'>www.shopkeep.com</a>.",
+            "I was the lead developer for ShopKeep’s marketing site, <a href='http://www.shopkeep.com' target='_blank'>www.shopkeep.com</a>.",
 
-            "I also manage and maintain their ecommerce site, <a href='http://shop.shopkeep.com' target='_blank'>shop.shopkeep.com</a>.",
+            "I also managed and maintained their ecommerce site, <a href='http://shop.shopkeep.com' target='_blank'>shop.shopkeep.com</a>.",
 
-            "I developed the front-end of their gift card micro-site, <a href='http://ecardsystems.com/shopkeep' target='_blank'>www.ecardsystems.com/shopkeep</a>.",
+            "I developed the front end of their gift card micro-site, <a href='http://ecardsystems.com/shopkeep' target='_blank'>www.ecardsystems.com/shopkeep</a>.",
 
-            "I developed the front-end of their lead capture micro-site, <a href='http://www.possoftwareguide.com/find-your-pos' target='_blank'>www.possoftwareguide.com/find-your-pos</a>."
+            "I developed the front end of their lead capture micro-site, <a href='http://www.possoftwareguide.com/find-your-pos' target='_blank'>www.possoftwareguide.com/find-your-pos</a>."
           ]
         },
         {
